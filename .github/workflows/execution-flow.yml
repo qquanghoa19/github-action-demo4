@@ -75,7 +75,7 @@ jobs:
         run: ls
       - name: Deploy
         run: echo "Deploying..."
-report:
+  report:
     needs: [test, lint]
     if: failure()
     run: |
