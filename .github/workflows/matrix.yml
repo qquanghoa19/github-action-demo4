@@ -1,0 +1,22 @@
+name: Add matric
+on: 
+  push:
+    branches:
+      - main
+jobs:
+  strategy:
+    matrix:
+      node-versions: [12,14,16]
+      operating-systems: [ubuntu-latest, windows-latest]
+  continue-on-error: true
+  build:
+    runs-on: ${{ matrix.node-versions }}
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+      - name: set up node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-versions }}
+      - name: build
+        run: npm run build
