@@ -1,8 +1,8 @@
-name: Add matric
+name: Add matrix
 on: 
   push:
     branches:
-      - main
+      - 'main'
 jobs:
   strategy:
     matrix:
