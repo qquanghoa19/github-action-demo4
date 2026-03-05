@@ -4,12 +4,12 @@ on:
     branches:
       - 'main'
 jobs:
-  strategy:
-    matrix:
-      node-versions: [12,14,16]
-      operating-systems: [ubuntu-latest, windows-latest]
-  continue-on-error: true
   build:
+    strategy:
+      matrix:
+        node-versions: [12,14,16]
+        operating-systems: [ubuntu-latest, windows-latest]
+    continue-on-error: true
     runs-on: ${{ matrix.node-versions }}
     steps:
       - name: Get code
