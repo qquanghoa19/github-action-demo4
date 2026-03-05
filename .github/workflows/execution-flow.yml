@@ -78,6 +78,8 @@ jobs:
   report:
     needs: [test, lint]
     if: failure()
-    run: |
-      echo "Something went wrong"
-      echo "${{ toJson(github) }}"
+    steps:
+      - name: Print report
+        run: |
+          echo "Something went wrong"
+          echo "${{ toJson(github) }}"
