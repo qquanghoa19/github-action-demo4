@@ -1,0 +1,21 @@
+name: Reusable Workflow
+on:
+ workflow_call:
+   inputs:
+     artifact-name:
+       description: the name of the deployable artifact file
+       required: false
+       default: dist
+       type: string
+jobs:
+  deploy:
+    runs-on: ubuntu-latets
+    steps:
+      - name: Download artifact
+        uses: actions/download-artiface@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+      - name: List file
+        run: ls
+      - name: Deploy 
+        run: echo "Downloading and deploying..."
