@@ -63,7 +63,7 @@ jobs:
           path: dist
   deploy:
     needs: build
-    uses: .github/workflows/reusable.yml
+    uses: ./.github/workflows/reusable.yml
     with:
       artifact-name: dist-files
     # runs-on: ubuntu-latest
